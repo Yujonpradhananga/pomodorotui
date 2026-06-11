@@ -6,13 +6,11 @@ use ratatui::{DefaultTerminal, Frame};
 
 pub fn timer(terminal: &mut DefaultTerminal) -> std::io::Result<()> {
     loop {
-        terminal.draw(render);
+        terminal.draw(|frame| {
+            frame.render_widget("niga", frame.area());
+        })?;
         if crossterm::event::read()?.is_key_press() {
             break Ok(());
         }
     }
-}
-
-fn render(frame: &mut Frame) {
-    frame.render_widget("niga", frame.area());
 }
