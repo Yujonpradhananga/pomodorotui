@@ -5,5 +5,5 @@ use ratatui::text::{Line, Span};
 use ratatui::{DefaultTerminal, Frame};
 
 pub fn timer() {
-    print!("niga")
+    print!("test")
 }
