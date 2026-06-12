@@ -1,15 +1,19 @@
-use ratatui::{DefaultTerminal, Frame};
+use ratatui::DefaultTerminal;
 use std::thread::sleep;
-use std::time::{Duration, Instant};
+use std::time::Duration;
 
 pub fn timer(terminal: &mut DefaultTerminal) {
-    let now = Instant::now();
     sleep(Duration::new(0, 0));
-    let i: &mut i32 = &mut 0;
-    let time: &mut i32 = &mut 1500;
+    let mut i: i32 = 0;
+    let time: i32 = 1500;
     while i <= time {
         println!("{i}");
         sleep(Duration::new(1, 0));
-        terminal.clear();
+        let var_name = terminal.clear();
+        match var_name {
+            Ok(_var_name) => {}
+            Err(_) => todo!(),
+        }
+        i += 1;
     }
 }
