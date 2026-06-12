@@ -1,8 +1,9 @@
 use ratatui::{DefaultTerminal, Frame};
+mod startbutton;
 mod timer;
-use timer::timer;
+use startbutton::button;
 
 fn main() -> std::io::Result<()> {
-    ratatui::run(timer)?;
+    ratatui::run(button);
     Ok(())
 }

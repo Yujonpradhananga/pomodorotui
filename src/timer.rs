@@ -1,16 +1,13 @@
-use crossterm::event;
+use crossterm::{event, terminal};
 use ratatui::layout::{Constraint, Layout, Rect};
 use ratatui::style::{Style, Stylize};
 use ratatui::text::{Line, Span};
 use ratatui::{DefaultTerminal, Frame};
+use std::thread::sleep;
+use std::time::{Duration, Instant};
 
-pub fn timer(terminal: &mut DefaultTerminal) -> std::io::Result<()> {
-    loop {
-        terminal.draw(|frame| {
-            frame.render_widget("niga", frame.area());
-        })?;
-        if crossterm::event::read()?.is_key_press() {
-            break Ok(());
-        }
-    }
+pub fn timer(terminal: &mut DefaultTerminal) {
+    let now = Instant::now();
+    sleep(Duration::new(2, 0));
+    println!("{}", now.elapsed().as_secs());
 }
