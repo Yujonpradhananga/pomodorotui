@@ -1,6 +1,7 @@
 use ratatui::DefaultTerminal;
 use std::thread::sleep;
 use std::time::Duration;
+
 //logic
 pub fn timer(terminal: &mut DefaultTerminal) {
     sleep(Duration::new(0, 0));
